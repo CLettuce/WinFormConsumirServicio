@@ -48,8 +48,8 @@ namespace WinFormConsumirServicio
             else
             {
                 RestClient cliente = new RestClient("https://localhost:44306/");
-                var solictud = new RestRequest($"api/EEstudiantes/{Convert.ToInt32(textBox1.Text.Trim())}");
-                var respuesta = cliente.Get(solictud);
+                var solicitud = new RestRequest($"api/EEstudiantes/{Convert.ToInt32(textBox1.Text.Trim())}");
+                var respuesta = cliente.Get(solicitud);
                 if (respuesta.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     var content = respuesta.Content;
@@ -75,6 +75,28 @@ namespace WinFormConsumirServicio
         private void button2_Click(object sender, EventArgs e)
         {
             InicializarControles();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Estudiantes estudiantes = (Estudiantes)dataGridView1.CurrentRow.DataBoundItem;
+            //textBox2.Text = estudiantes.Matricula;
+            //textBox3.Text = estudiantes.Nombre;
+            //textBox4.Text = estudiantes.Apellido;
+            //textBox5.Text = estudiantes.Telefono;
+            //textBox6.Text = estudiantes.Direccion;
+            
+        }
+
+        private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Estudiantes estudiantes = (Estudiantes)dataGridView1.CurrentRow.DataBoundItem;
+            textBox2.Text = estudiantes.Matricula;
+            textBox3.Text = estudiantes.Nombre;
+            textBox4.Text = estudiantes.Apellido;
+            textBox5.Text = estudiantes.Telefono;
+            textBox6.Text = estudiantes.Direccion;
+            textBox7.Text = Convert.ToString(estudiantes.IdEstudiante);
         }
     }
 }
