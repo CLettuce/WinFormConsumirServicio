@@ -80,5 +80,38 @@ namespace WinFormConsumirServicio
         {
             mouseDown = false;
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        //Capturar posicion se restaura la página
+        int lx, ly;
+        int sw, sh;
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnNormal_Click(object sender, EventArgs e)
+        {
+            btnMaximizar.Visible = true;
+            btnNormal.Visible = false;
+            this.Size = new Size(sw, sh);
+            this.Location = new Point(lx, ly);
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            lx = this.Location.X;
+            ly = this.Location.Y;
+            sw = this.Size.Width;
+            sh = this.Size.Height;
+            btnMaximizar.Visible = false;
+            btnNormal.Visible = true;
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
+        }
     }
 }
