@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -92,6 +93,14 @@ namespace WinFormConsumirServicio
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void menuEstudiantes_Click(object sender, EventArgs e)
+        {
+            Form1 est = new Form1();
+            est.MdiParent = this;
+            est.Show();
+            //est.ShowDialog();
         }
 
         private void btnNormal_Click(object sender, EventArgs e)

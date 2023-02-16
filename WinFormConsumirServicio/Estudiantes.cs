@@ -14,6 +14,7 @@ namespace WinFormConsumirServicio
         public string Apellido { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
+        public Estudiantes() { }
 
         public Estudiantes(int IdEstudiante,
             string Matricula, string Nombre, string Apellido, string Telefono, string Direccion) 

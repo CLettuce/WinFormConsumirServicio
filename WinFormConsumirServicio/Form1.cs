@@ -28,7 +28,7 @@ namespace WinFormConsumirServicio
         protected void InicializarControles()
         {
             textBox1.Text = "";
-            RestClient cliente = new RestClient("https://localhost:44323/");
+            RestClient cliente = new RestClient("https://localhost:44306/");
             var solictud = new RestRequest("api/EEstudiantes");
             var respuesta = cliente.Get(solictud);
             if (respuesta.StatusCode == System.Net.HttpStatusCode.OK)
@@ -47,7 +47,7 @@ namespace WinFormConsumirServicio
             }
             else
             {
-                RestClient cliente = new RestClient("https://localhost:44323/");
+                RestClient cliente = new RestClient("https://localhost:44306/");
                 var solicitud = new RestRequest($"api/EEstudiantes/{Convert.ToInt32(textBox1.Text.Trim())}");
                 var respuesta = cliente.Get(solicitud);
                 if (respuesta.StatusCode == System.Net.HttpStatusCode.OK)
@@ -75,28 +75,55 @@ namespace WinFormConsumirServicio
         private void button2_Click(object sender, EventArgs e)
         {
             InicializarControles();
+            LimpiarControles();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //Estudiantes estudiantes = (Estudiantes)dataGridView1.CurrentRow.DataBoundItem;
-            //textBox2.Text = estudiantes.Matricula;
-            //textBox3.Text = estudiantes.Nombre;
-            //textBox4.Text = estudiantes.Apellido;
-            //textBox5.Text = estudiantes.Telefono;
-            //textBox6.Text = estudiantes.Direccion;
-            
+            if ( txtIdEst.Text.Trim() == "" || txtNombres.Text.Trim() == "" || txtApellidos.Text.Trim() == "")
+            {
+                MessageBox.Show("Nombres y Apellidos Requeridos", "Aviso", MessageBoxButtons.OK);
+                txtNombres.Focus();
+            }
+            else
+            {
+                RestClient cliente = new RestClient("https://localhost:44306/");
+                var solicitud = new RestRequest($"api/EEstudiantes/{Convert.ToInt32(txtIdEst.Text.Trim())}");
+                solicitud.AddJsonBody(new Estudiantes(){
+                    IdEstudiante = Convert.ToInt32(txtIdEst.Text.Trim()),
+                    Matricula = txtMatricula.Text,
+                    Nombre= txtNombres.Text,
+                    Apellido= txtApellidos.Text,
+                    Telefono= txtTelefono.Text,
+                    Direccion= txtDireccion.Text });
+               var respuesta =  cliente.Put(solicitud);
+                if (respuesta.StatusCode == System.Net.HttpStatusCode.NoContent)
+                {
+                    InicializarControles();
+                    LimpiarControles();
+                }
+            }
+
+        }
+        protected void LimpiarControles()
+        {
+            txtIdEst.Text = "";
+            txtMatricula.Text = "";
+            txtNombres.Text = "";
+            txtApellidos.Text = "";
+            txtTelefono.Text = "";
+            txtDireccion.Text = "";
         }
 
         private void dataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Estudiantes estudiantes = (Estudiantes)dataGridView1.CurrentRow.DataBoundItem;
-            textBox2.Text = estudiantes.Matricula;
-            textBox3.Text = estudiantes.Nombre;
-            textBox4.Text = estudiantes.Apellido;
-            textBox5.Text = estudiantes.Telefono;
-            textBox6.Text = estudiantes.Direccion;
-            textBox7.Text = Convert.ToString(estudiantes.IdEstudiante);
+            txtMatricula.Text = estudiantes.Matricula;
+            txtNombres.Text = estudiantes.Nombre;
+            txtApellidos.Text = estudiantes.Apellido;
+            txtTelefono.Text = estudiantes.Telefono;
+            txtDireccion.Text = estudiantes.Direccion;
+            txtIdEst.Text = Convert.ToString(estudiantes.IdEstudiante);
         }
         //MOVER EL FORMULARIO SIN NECESIDAD DE UN this.Invalidate(); 
         private bool mouseDown;
