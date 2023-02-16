@@ -97,7 +97,7 @@ namespace WinFormConsumirServicio
                     Telefono= txtTelefono.Text,
                     Direccion= txtDireccion.Text });
                var respuesta =  cliente.Put(solicitud);
-                if (respuesta.StatusCode == System.Net.HttpStatusCode.NoContent)
+                if (respuesta.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     InicializarControles();
                     LimpiarControles();
