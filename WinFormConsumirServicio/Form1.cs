@@ -97,7 +97,7 @@ namespace WinFormConsumirServicio
                     Telefono= txtTelefono.Text,
                     Direccion= txtDireccion.Text });
                var respuesta =  cliente.Put(solicitud);
-                if (respuesta.StatusCode == System.Net.HttpStatusCode.OK)
+                if (respuesta.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {
                     InicializarControles();
                     LimpiarControles();
@@ -125,30 +125,7 @@ namespace WinFormConsumirServicio
             txtDireccion.Text = estudiantes.Direccion;
             txtIdEst.Text = Convert.ToString(estudiantes.IdEstudiante);
         }
-        //MOVER EL FORMULARIO SIN NECESIDAD DE UN this.Invalidate(); 
-        private bool mouseDown;
-        private Point lastLocation;
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            mouseDown = true;
-            lastLocation = e.Location;
-        }
-
-        private void panel1_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (mouseDown)
-            {
-                this.Location = new Point(
-                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
-
-                this.Update();
-            }
-        }
-
-        private void panel1_MouseUp(object sender, MouseEventArgs e)
-        {
-            mouseDown = false;
-        }
+        
         //RESIZE METODO PARA REDIMENCIONAR/CAMBIAR TAMAÑO A FORMULARIO EN TIEMPO DE EJECUCION ----------------------------------------------------------
         private int tolerance = 12;
         private const int WM_NCHITTEST = 132;
@@ -176,7 +153,7 @@ namespace WinFormConsumirServicio
             var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
             sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
             region.Exclude(sizeGripRectangle);
-            this.panel2.Region = region;
+            this.panel1.Region = region;
             this.Invalidate();
         }
         //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
@@ -191,6 +168,56 @@ namespace WinFormConsumirServicio
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (txtMatricula.Text.Trim() == "")
+            {
+                MessageBox.Show("El número de Matricula es Requerida", "Aviso", MessageBoxButtons.OK);
+                txtMatricula.Focus();
+            }
+            else if (txtNombres.Text.Trim() == "" )
+            {
+                MessageBox.Show("Los Nombres son Requeridos", "Aviso", MessageBoxButtons.OK);
+                txtNombres.Focus();
+            }
+            else if (txtApellidos.Text.Trim() == "")
+            {
+                MessageBox.Show("Los Apellidos son Requeridos", "Aviso", MessageBoxButtons.OK);
+                txtNombres.Focus();
+            }
+            else if(txtTelefono.Text.Trim() == "")
+            {
+                MessageBox.Show("El Telefono es Requerido", "Aviso", MessageBoxButtons.OK);
+                txtNombres.Focus();
+            }
+            else if (txtDireccion.Text.Trim() == "")
+            {
+                MessageBox.Show("La Dirección es Requerida", "Aviso", MessageBoxButtons.OK);
+                txtMatricula.Focus();
+            }
+
+            else
+            {
+                RestClient cliente = new RestClient("https://localhost:44306/");
+                var solicitud = new RestRequest("api/EEstudiantes/");
+                solicitud.AddJsonBody(new Estudiantes()
+                {
+                    
+                    Matricula = txtMatricula.Text,
+                    Nombre = txtNombres.Text,
+                    Apellido = txtApellidos.Text,
+                    Telefono = txtTelefono.Text,
+                    Direccion = txtDireccion.Text
+                });
+                var respuesta = cliente.Post(solicitud);
+                if (respuesta.StatusCode == System.Net.HttpStatusCode.Created)
+                {
+                    InicializarControles();
+                    LimpiarControles();
+                }
+            }
         }
     }
 }
