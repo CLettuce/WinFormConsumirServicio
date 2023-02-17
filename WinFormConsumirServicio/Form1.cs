@@ -71,18 +71,18 @@ namespace WinFormConsumirServicio
                 }
             }
         }
-      
+        //ACTUALIZAR
         private void button2_Click(object sender, EventArgs e)
         {
             InicializarControles();
             LimpiarControles();
         }
-
+        //EDITAR
         private void button3_Click(object sender, EventArgs e)
         {
             if ( txtIdEst.Text.Trim() == "" || txtNombres.Text.Trim() == "" || txtApellidos.Text.Trim() == "")
             {
-                MessageBox.Show("Nombres y Apellidos Requeridos", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Seleccione Un Valor Válido", "Aviso", MessageBoxButtons.OK);
                 txtNombres.Focus();
             }
             else
