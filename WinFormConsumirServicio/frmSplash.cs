@@ -23,7 +23,7 @@ namespace WinFormConsumirServicio
             if(pnSlide.Width >= 379)
             {
                 timer1.Stop();
-                frmLogin fmLogin = new frmLogin();
+                frmPrincipal fmLogin = new frmPrincipal();
                 fmLogin.Show();
                 this.Hide();
             }

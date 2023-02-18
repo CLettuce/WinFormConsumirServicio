@@ -58,15 +58,15 @@ namespace WinFormConsumirServicio
             }
             else if (txtU.Text == "admin" && txtC.Text == "123")
             {
-                frmPrincipal frmInicio = new frmPrincipal();
+                frmSplash frmSplash = new frmSplash();
                 this.Hide();
-                frmInicio.Show();
+                frmSplash.Show();
             }
             else if (txtU.Text == "usuario" && txtC.Text == "123")
             {
-                frmPrincipal frmInicio = new frmPrincipal();
+                frmSplash frmSplash = new frmSplash();
                 this.Hide();
-                frmInicio.Show();
+                frmSplash.Show();
             }
             else
             {
@@ -97,15 +97,15 @@ namespace WinFormConsumirServicio
                 }
                 else if (txtU.Text == "admin" && txtC.Text == "123")
                 {
-                    frmPrincipal frmInicio = new frmPrincipal();
+                    frmSplash frmSplash = new frmSplash();
                     this.Hide();
-                    frmInicio.Show();
+                    frmSplash.Show();
                 }
                 else if (txtU.Text == "usuario" && txtC.Text == "123")
                 {
-                    frmPrincipal frmInicio = new frmPrincipal();
+                    frmSplash frmSplash = new frmSplash();
                     this.Hide();
-                    frmInicio.Show();
+                    frmSplash.Show();
                 }
                 else
                 {
