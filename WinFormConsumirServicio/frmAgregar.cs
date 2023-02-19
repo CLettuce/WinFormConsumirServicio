@@ -114,7 +114,8 @@ namespace WinFormConsumirServicio
                 }
             }
         }
-        //OCULTAMOS EL FORMULARIO Y MOSTRAMOS EN frmPrincipal en forma de dialogo modal
+
+        //OCULTAMOS EL FORMULARIO Y MOSTRAMOS EN frmPrincipal en forma de dialogo modal dsds
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
