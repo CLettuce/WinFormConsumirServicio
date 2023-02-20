@@ -119,8 +119,6 @@ namespace WinFormConsumirServicio
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmPrincipal princ = new frmPrincipal();
-            princ.ShowDialog();
         }
     }
 }

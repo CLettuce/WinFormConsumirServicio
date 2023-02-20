@@ -98,8 +98,7 @@ namespace WinFormConsumirServicio
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmPrincipal princ = new frmPrincipal();
-            princ.ShowDialog();
+            
         }
 
         private void btnBuscarId_Click(object sender, EventArgs e)
@@ -155,6 +154,17 @@ namespace WinFormConsumirServicio
                     dataGridView1.Refresh();
                 }
             }
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            Estudiantes estudiantes = (Estudiantes)dataGridView1.CurrentRow.DataBoundItem;
+            txtMatricula.Text = estudiantes.Matricula;
+            txtNombres.Text = estudiantes.Nombre;
+            txtApellidos.Text = estudiantes.Apellido;
+            txtTelefono.Text = estudiantes.Telefono;
+            txtDireccion.Text = estudiantes.Direccion;
+            txtIdEst.Text = Convert.ToString(estudiantes.IdEstudiante);
         }
     }
 }

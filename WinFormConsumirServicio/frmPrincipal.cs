@@ -60,17 +60,21 @@ namespace WinFormConsumirServicio
         {
            
         }
-        private void AbrirFormEnPanel(object Formhijo)
-        {
-            if (this.pnContenedor.Controls.Count > 0)
-                this.pnContenedor.Controls.RemoveAt(0);
-            Form fh = Formhijo as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.pnContenedor.Controls.Add(fh);
-            this.pnContenedor.Tag = fh;
-            fh.Show();
-        }
+        //private void AbrirFormEnPanel(object Formhijo)
+        //{
+        //    if (this.pnContenedor.Controls.Count > 0)
+        //        this.pnContenedor.Controls.RemoveAt(0);
+        //    Form fh = Formhijo as Form;
+        //    fh.TopLevel = false;
+        //    fh.Dock = DockStyle.Fill;
+        //    this.pnContenedor.Controls.Add(fh);
+        //    this.pnContenedor.Tag = fh;
+        //    fh.Show();
+        //}
+
+
+        //AHORA SE HACE CON LA PROPIEDAD MdiParent sin arreglos y con condicional para
+        //evitar la duplicacion de los formularios
         private void btnRegistro_Click(object sender, EventArgs e)
         {
             bool FrmThis = false;
@@ -87,6 +91,7 @@ namespace WinFormConsumirServicio
                 frmRegistro info = new frmRegistro();
                 info.MdiParent = this;
                 info.Dock = DockStyle.Fill;
+                //Nota: Este es un arreglo para adaparte dentro de x Objeto el frmQue mandamos a traer...
                 //pnContenedor.Controls[0].Controls.Add(info);
                 this.pnContenedor.Controls.Add(info);
                 info.Show();
@@ -100,12 +105,47 @@ namespace WinFormConsumirServicio
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmEditar());
+            bool FrmThis = false;
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(frmEditar))
+                    FrmThis = true;
+            }
+
+            if (FrmThis == true)
+                MessageBox.Show("NO SE PUEDE ABRIR EL MISMO FORMULARIO MAS DE UNA VEZ");
+            else
+            {
+                frmEditar info = new frmEditar();
+                info.MdiParent = this;
+                info.Dock = DockStyle.Fill;
+                //pnContenedor.Controls[0].Controls.Add(info);
+                this.pnContenedor.Controls.Add(info);
+                info.Show();
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmAgregar());
+            bool FrmThis = false;
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(frmAgregar))
+                    FrmThis = true;
+            }
+
+            if (FrmThis == true)
+                MessageBox.Show("NO SE PUEDE ABRIR EL MISMO FORMULARIO MAS DE UNA VEZ");
+            else
+            {
+                frmAgregar info = new frmAgregar();
+                info.MdiParent = this;
+                info.Dock = DockStyle.Fill;
+                //pnContenedor.Controls[0].Controls.Add(info);
+                this.pnContenedor.Controls.Add(info);
+                info.Show();
+                
+            }
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
