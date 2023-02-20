@@ -37,16 +37,17 @@
             this.btnRegistro = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnMini = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnSlide = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnContenedor = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblHora = new System.Windows.Forms.Label();
             this.lblFecha = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,8 +55,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSlide)).BeginInit();
             this.pnContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnVertical
@@ -155,18 +156,6 @@
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(341, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(383, 47);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Sistema de Matriculas";
-            // 
             // btnMini
             // 
             this.btnMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -203,35 +192,36 @@
             this.btnSlide.TabStop = false;
             this.btnSlide.Click += new System.EventHandler(this.btnSlide_Click);
             // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(341, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(383, 47);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Sistema de Matriculas";
+            // 
             // pnContenedor
             // 
-            this.pnContenedor.Controls.Add(this.label1);
+            this.pnContenedor.Controls.Add(this.label2);
             this.pnContenedor.Controls.Add(this.pictureBox2);
+            this.pnContenedor.Controls.Add(this.label1);
             this.pnContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnContenedor.Location = new System.Drawing.Point(228, 54);
             this.pnContenedor.Name = "pnContenedor";
             this.pnContenedor.Size = new System.Drawing.Size(1059, 651);
             this.pnContenedor.TabIndex = 2;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 59);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1041, 490);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
             // lblHora
             // 
             this.lblHora.AutoSize = true;
-            this.lblHora.Font = new System.Drawing.Font("DS-Digital", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHora.Location = new System.Drawing.Point(6, 20);
             this.lblHora.Name = "lblHora";
-            this.lblHora.Size = new System.Drawing.Size(164, 66);
+            this.lblHora.Size = new System.Drawing.Size(176, 76);
             this.lblHora.TabIndex = 0;
             this.lblHora.Text = "Hora";
             // 
@@ -242,7 +232,7 @@
             this.lblFecha.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.Location = new System.Drawing.Point(677, 49);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(79, 32);
+            this.lblFecha.Size = new System.Drawing.Size(78, 32);
             this.lblFecha.TabIndex = 3;
             this.lblFecha.Text = "Fecha";
             // 
@@ -260,6 +250,28 @@
             this.panel2.Size = new System.Drawing.Size(1059, 96);
             this.panel2.TabIndex = 4;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(232, 102);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(572, 410);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 4;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(829, 22);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(218, 490);
+            this.label2.TabIndex = 5;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,6 +282,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnVertical);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrincipal";
@@ -282,9 +295,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnSlide)).EndInit();
             this.pnContenedor.ResumeLayout(false);
             this.pnContenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -306,7 +319,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -40,8 +40,8 @@ namespace WinFormConsumirServicio
         private void btnCerrar_Click(object sender, EventArgs e)
         {
            
-            frmPrincipal princ = new frmPrincipal();
-            princ.ShowDialog();
+            //frmPrincipal princ = new frmPrincipal();
+           // princ.ShowDialog();
             this.Close();
 
         }

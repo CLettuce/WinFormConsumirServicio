@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -72,8 +73,24 @@ namespace WinFormConsumirServicio
         }
         private void btnRegistro_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new frmRegistro());
-            
+            bool FrmThis = false;
+            foreach (Form frm in Application.OpenForms)
+            {
+                if (frm.GetType() == typeof(frmRegistro))
+                    FrmThis = true;
+            }
+
+            if (FrmThis == true)
+                MessageBox.Show("NO SE PUEDE ABRIR EL MISMO FORMULARIO MAS DE UNA VEZ");
+            else
+            {
+                frmRegistro info = new frmRegistro();
+                info.MdiParent = this;
+                info.Dock = DockStyle.Fill;
+                //pnContenedor.Controls[0].Controls.Add(info);
+                this.pnContenedor.Controls.Add(info);
+                info.Show();
+            }
         }
 
         private void btnPrincipal_Click(object sender, EventArgs e)
