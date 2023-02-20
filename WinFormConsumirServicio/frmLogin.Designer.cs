@@ -143,7 +143,6 @@ namespace WinFormConsumirServicio
             this.txtU.Name = "txtU";
             this.txtU.Size = new System.Drawing.Size(293, 33);
             this.txtU.TabIndex = 1;
-            this.txtU.Text = "admin";
             // 
             // txtC
             // 
@@ -152,7 +151,6 @@ namespace WinFormConsumirServicio
             this.txtC.Name = "txtC";
             this.txtC.Size = new System.Drawing.Size(293, 33);
             this.txtC.TabIndex = 2;
-            this.txtC.Text = "123";
             // 
             // frmLogin
             // 

@@ -58,17 +58,18 @@
             this.btnAgregar.Location = new System.Drawing.Point(799, 95);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(136, 39);
-            this.btnAgregar.TabIndex = 1;
+            this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "    Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnAgregar_KeyPress);
             // 
             // txtIdEst
             // 
             this.txtIdEst.Location = new System.Drawing.Point(10, 29);
             this.txtIdEst.Name = "txtIdEst";
             this.txtIdEst.Size = new System.Drawing.Size(100, 20);
-            this.txtIdEst.TabIndex = 2;
+            this.txtIdEst.TabIndex = 7;
             this.txtIdEst.Visible = false;
             // 
             // txtNombres
@@ -77,7 +78,7 @@
             this.txtNombres.Location = new System.Drawing.Point(336, 55);
             this.txtNombres.Name = "txtNombres";
             this.txtNombres.Size = new System.Drawing.Size(198, 33);
-            this.txtNombres.TabIndex = 3;
+            this.txtNombres.TabIndex = 2;
             // 
             // txtApellidos
             // 
@@ -85,7 +86,7 @@
             this.txtApellidos.Location = new System.Drawing.Point(579, 55);
             this.txtApellidos.Name = "txtApellidos";
             this.txtApellidos.Size = new System.Drawing.Size(174, 33);
-            this.txtApellidos.TabIndex = 4;
+            this.txtApellidos.TabIndex = 3;
             // 
             // txtMatricula
             // 
@@ -93,7 +94,7 @@
             this.txtMatricula.Location = new System.Drawing.Point(115, 55);
             this.txtMatricula.Name = "txtMatricula";
             this.txtMatricula.Size = new System.Drawing.Size(130, 33);
-            this.txtMatricula.TabIndex = 5;
+            this.txtMatricula.TabIndex = 1;
             // 
             // txtTelefono
             // 
@@ -101,7 +102,7 @@
             this.txtTelefono.Location = new System.Drawing.Point(115, 167);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(185, 33);
-            this.txtTelefono.TabIndex = 6;
+            this.txtTelefono.TabIndex = 4;
             // 
             // txtDireccion
             // 
@@ -109,7 +110,7 @@
             this.txtDireccion.Location = new System.Drawing.Point(336, 167);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(417, 33);
-            this.txtDireccion.TabIndex = 7;
+            this.txtDireccion.TabIndex = 5;
             // 
             // label1
             // 
@@ -226,6 +227,7 @@
             // 
             // frmAgregar
             // 
+            this.AcceptButton = this.btnAgregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
