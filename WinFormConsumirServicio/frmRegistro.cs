@@ -37,7 +37,7 @@ namespace WinFormConsumirServicio
             }
         }
         //OCULTAMOS EL FORMULARIO Y MOSTRAMOS EN frmPrincipal en forma de dialogo modal
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void btnCerrar_Click(object sender, EventArgs  e)
         {
            
             //frmPrincipal princ = new frmPrincipal();

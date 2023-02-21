@@ -70,7 +70,7 @@ namespace WinFormConsumirServicio
             }
             else
             {
-                MessageBox.Show("Contraseña Incorrecta", "Aviso", MessageBoxButtons.OK);
+                MessageBox.Show("Usuario o Contraseña Incorrecta. ", "Aviso", MessageBoxButtons.OK);
                 txtU.Clear();
                 txtC.Clear();
             }
